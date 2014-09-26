@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Category: Attributes</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style type="text/css">
+	body {
+		margin: auto;
+		width: 1000px;
+		height: auto;
+	}
+	.test1 {
+		color: blue;
+		font-weight: bolder;
+	}
+	.test2 {
+		color: green;
+	}
+	.test3 {
+		color: yellow;
+	}
+	.test4 {
+		color: red;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+    	var hrefAttr = $('a').attr('href');
+    	$('.test1').html(hrefAttr);
+    	$('a').attr('href', 'http://api.jquery.com/category/attributes/');
+    	$('div').attr('class', function(i) {
+    		var count = i + 1;
+    		return 'test' + count;
+    	});
+	});
+</script>
+</head>
+
+<body>
+	<h1 align="center" style="color: red;">Cách sử dụng và demo Category: Attributes trong jquery (P2)</h1>
+	<h2>.attr(tên thuộc tính)</h2>
+	<p>Thành phần p có <a href="http://api.jquery.com/category/attributes/">link a</a></p>
+	<p>Bạn đang xem nội dung tại <span class="test1"></span></p>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/1.PNG"></td>
+			<td><img src="images/2.PNG"></td>
+		</tr>
+	</table>
+
+	<hr>
+	<h2>.attr(tên thuộc tính, giá trị thuộc tính)</h2>
+	<p>Ban đầu thuộc tính href có giá trị là https://www.google.com.vn/, ta thay đổi giá trị của thuộc tính href thành http://api.jquery.com/category/attributes/ </p>
+	<p>Thành phần p có <a href="https://www.google.com.vn/">link a</a></p>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/3.PNG"></td>
+			<td><img src="images/4.PNG"></td>
+		</tr>
+	</table>
+	<hr>
+	<h2>.attr({ tên thuộc tính 1: giá trị thuộc tính 1, ..., tên thuộc tính n: giá trị thuộc tính n })</h2>
+	<div>Thành phần p 01</div>
+	<div>Thành phần p 02</div>
+	<div>Thành phần p 03</div>
+	<div>Thành phần p 04</div>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/5.PNG"></td>
+			<td><img src="images/6.PNG"></td>
+		</tr>
+	</table>
+</body>
+</html>

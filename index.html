@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Category: Attributes</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <style>
+            body {
+                margin: auto;
+                width: 1000px;
+                height: auto;
+            }
+            p {
+            margin: 8px;
+            font-size: 16px;
+            }
+            .selected {
+            color: blue;
+            }
+            .highlight {
+            background: yellow;
+            }
+            .test1{
+                background-color: red;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("p").last().addClass("selected");
+                $("div").addClass(function (index, currentClass){
+                    var addedClass;
+                    if(currentClass === "test") {
+                        addedClass = "test1";
+                    }
+                    return addedClass;
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <h1 align="center" style="color: red;">Cách sử dụng và demo Category: Attributes trong jquery (P1)</h1>
+        <p>Hello</p>
+        <p>and</p>
+        <p>Goodbye</p>
+        <div>this div tag not addclass "test1"</div>
+        <div class="test">This div tag after addclass "test1" </div>
+        <table>
+        <tr>
+            <th >Trước khi có Jquery</th>
+            <th>Sau khi có Jquery</th>
+        </tr>
+        <tr>
+            <td><img src="images/15.PNG"></td>
+            <td><img src="images/16.PNG"></td>
+        </tr>
+    </table>
+    </body>
+</html>

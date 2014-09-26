@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Category: CSS</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style type="text/css">
+	body {
+		margin: auto;
+		width: 1000px;
+		height: auto;
+	}
+	.example {
+		color: red;
+		font-weight: bold;
+	}
+	.css {
+		width: 60px;
+	    height: 60px;
+	    margin: 5px;
+	    float: left;
+	}
+	#box1 {
+		width: 50px;
+		height: 50px;
+		color: white;
+		background-color:blue; 
+	}
+	#box2 {
+		width: 100px;
+		background-color: red;
+	}
+	.height2,.toado2 {
+		background-color: yellow;
+		width: 100%;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+    	$('p').each(function() {
+    		var hClass = $(this).hasClass('test1');
+    		if(hClass) {
+    			$(this).append('<span> - thành phần có class = "test1"</span>');
+    		}
+    	});
+
+    	var hDiv = $('.height1').height();
+    	$('.heightkq').text('Chiều cao của thành phần div:' + hDiv + 'px');
+    	$('.height2').height(100);
+    	var ulHeight = $('ul').innerHeight();
+    	$('.innerheight').text(ulHeight);
+	});
+</script>
+</head>
+
+<body>
+	<h1 align="center" style="color: red;">Cách sử dụng và demo Category: CSS trong jquery </h1>
+	<h2>1- .addClass(): tương tự với phương thức .addClass() của Attributes</h2>
+	<p>.addClass() là phương thức thêm vào một hay nhiều class cho một thành phần HTML nào đó.</p>
+	<hr>
+	<h2>2- .css():</h2>
+	<h4>- Được dùng để thêm một hoặc nhiều style cho thành phần.</h4>
+	<h4>- Ngoài ra còn có thể sử dụng .css() để lấy giá trị style của thành phần.</h4>
+	<p class="example"> Ví dụ: Get the background color of a clicked div.</p>
+	<div class="css" style="background-color:blue;"></div>
+	<div class="css" style="background-color:rgb(15,99,30);"></div>
+	<div class="css" style="background-color:yellow;"></div>
+	<div class="css" style="background-color:#f11;"></div>
+	<p class="kq"></p>
+	<script type="text/javascript">
+		$("div").click(function() {
+			var color = $(this).css("background-color");
+			$('.kq').html("Background of that div is <span style='color:" + color + ";'>" + color + "</span>");
+		});
+	</script>
+	<br><br><br><br><br>
+	<h2>3- .hasClass('name_class')</h2>
+	<h4>-  Xác định thành phần có chứa class nhất định nào đó hay không.</h4>
+	<p class="example"> Ví dụ</p>
+	<p class = "test1"> Thành phần bên trong thẻ p</p>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/17.PNG"></td>
+			<td><img src="images/18.PNG"></td>
+		</tr>
+	</table>
+	<br><br>
+	<h2>4- .height()</h2>
+	<h4>Xác định hoặc gán giá trị chiều cao (height) cho thành phần.</h4>
+	<p class="example"> Ví dụ 1: Xác định giá trị chiều cao của thành phần.</p>
+	<div class="height1">Thành phần bên trong thẻ div</div>
+	<p></p>
+	<span style="color: blue;" class="heightkq"></span>
+	<br>
+	<p class="example"> Ví dụ 2: Gán giá trị chiều cao cho thành phần.</p>
+	<div class="height2">Gán giá trị height cho thẻ div là 100px</div>
+	<br>
+	<h2>5- .width()</h2>
+	<h4> - Xác định hoặc gán giá trị chiều rộng (width) cho thành phần.</h4>
+	<p class="example"> Ví dụ: tương tự phương thức .height()</p>
+	<br>
+	<h2>6- innerHeight()</h2>
+	<h4>- Lấy giá trị chiều cao của thành phần phù hợp, chiều cao này không bao gồm border hay margin.</h4>
+	<p class="example">Ví dụ</p>
+	<ul>
+		<li>Thành phần li 1</li>
+		<li>Thành phần li 2</li>
+		<li>Thành phần li 3</li>
+	</ul>
+	<p>Thành phần ul cao: <span class="innerheight"></span> px</p>
+	<br>
+	<h2>7- .innerWidth()</h2>
+	<h4> Lấy giá trị chiều rộng của thành phần phù hợp, chiều cao này không bao gồm border hay margin.</h4>
+	<br>
+	<h2>8- .offset()</h2>
+	<h4>Lấy tọa độ hiện tại của thành phần đầu tiên, hoặc thiết lập các tọa độ của từng thành phần trong tập hợp các thành phần phù hợp liên quan đến văn bản.</h4>
+	<p class="example">Ví dụ</p>
+	<div class="toado1">Thanh phan ben trong the div</div>
+	<p>Toa do cua class = "toado": (<span class="kqtoado1"></span>)</p>
+	<script>
+		var kq = $('.toado1').offset();
+		$('.kqtoado1').text(kq.left+" , "+kq.top);
+	</script>
+	<br>
+	<p class="example">Ví dụ 2: Khi click vào button, ta đã cộng thêm vào 10px của tọa độ x và y với thành phần đầu tiên.</p>
+	<p class="toado2">thanh phan p1</p>
+	<p class="toado2">thanh phan p2</p>
+	<button class="kqtoado2">click</button>
+	<script>
+		$('.kqtoado2').on('click', function() {
+			$('.toado2').offset(function(index, coordinates) {
+				if(index == 0) {
+					coordinates.top += 10;
+					coordinates.left+=10;
+				}
+				return $(this).offset(coordinates);
+			});
+		});
+	</script>
+	<br>
+	<h2>9- .outerHeight()</h2>
+	<h4>- .outerHeight(): Lấy giá trị chiều cao của thành phần phù hợp, chiều cao này bao gồm border, padding.</h4>
+	<h4>- .outerHeight(true): sẽ cộng thêm thành phần margin nếu có thêm tùy chọn "true".</h4>
+	<br>
+	<h2>10- .outerWidth()</h2>
+	<h4>.outerWidth(): Lấy giá trị chiều rộng của thành phần phù hợp, chiều rộng này bao gồm border, padding.</h4>
+	<h4>.outerWidth(true): sẽ cộng thêm thành phần margin nếu có thêm tùy chọn "true".</h4>
+</body>
+</html>

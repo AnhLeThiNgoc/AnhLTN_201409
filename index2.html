@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Category: Attributes</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style type="text/css">
+	body {
+		margin: auto;
+		width: 1000px;
+		height: auto;
+	}
+	table {
+		border: 2px solid #cdcdcd;
+	}
+	.test1 {
+		color: blue;
+		font-weight: bolder;
+	}
+	.addHtml {
+		font-size: 14px;
+		color: red;
+		font-weight: bold;
+	}
+	.toggleClass {
+		background-color: yellow;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+    	$('p').each(function(){
+    		var hClass = $(this).hasClass('test1');
+    		if(hClass) {
+    			$(this).append('<span> - thành phần có class = "test1" </span>');
+    		}
+    	});
+    	var divHtml = $('div').html();
+    	$('button').click(function() {
+    		alert(divHtml);
+    	})
+    	$('.addHtml').html('<p>Thành phần được thêm vào </p>');
+    	$('test2').removeAttr('class');
+    	$('#removeAll').removeClass();
+    	$('#removeAll1').removeClass('test5 test6');
+    	$('.toggle').click(function(){
+    		$(this).toggleClass('toggleClass');
+    	});
+
+    	$("input").keyup(function(){
+    		var value = $(this).val();
+    		$(".val").text(value);
+    	}).keyup();
+	});
+</script>
+</head>
+
+<body>
+	<h1 align="center" style="color: red;">Cách sử dụng và demo Category: Attributes trong jquery (P3)</h1>
+	<h2>.hasClass('Tên lass'): Xác định thành phần có chứa class nhất định nào đó hay không.</h2>
+	<p class="test1">Thành phần p 1</p>
+	<p>Thành phần p 2</p>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/7.PNG"></td>
+			<td><img src="images/8.PNG"></td>
+		</tr>
+	</table>
+	<hr>
+	<h2>.html(): Lấy nội dung HTML của thành phần, hoặc gán giá trị HTML cho thành phần.</h2>
+	<div>Thành phần bên trong thẻ div</div>
+	<p>1. Lấy nội dung HTML của thẻ div</p>
+	<button>Click</button>
+	<p>2. Gán nội dung HTML cho thành phần</p>
+	<div class="addHtml"></div>
+	<hr>
+	<h2>.removeAttr(): Loại bỏ các thuộc tính (attr) có bên trong thành phần.</h2>
+	<div class="removeAttr test2"> Thành phần bên trong thẻ div</div>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/9.PNG"></td>
+			<td><img src="images/10.PNG"></td>
+		</tr>
+	</table>
+	<hr>
+	<h2>.removeClass(): Loại bỏ thuộc tính (attr) class có bên trong thành phần.</h2>
+	<p>1. Loại bỏ tất cả các thuộc tính class có trong thành phần</p>
+	<div id="removeAll" class="test3 test4 test5 test6">Thành phần bên trong thẻ div</div>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/11.PNG"></td>
+			<td><img src="images/12.PNG"></td>
+		</tr>
+	</table>
+	<p>2. Loại bỏ tên class có trong thành phần</p>
+	<div id="removeAll1" class="test3 test4 test5 test6">Thành phần bên trong thẻ div</div>
+	<table>
+		<tr>
+			<th>Trước khi có Jquery</th>
+			<th>Sau khi có Jquery</th>
+		</tr>
+		<tr>
+			<td><img src="images/13.PNG"></td>
+			<td><img src="images/14.PNG"></td>
+		</tr>
+	</table>
+	<h2>.toggleClass(): Thêm hoặc loại bỏ một hoặc nhiều class của thành phần.</h2>
+	<p style="font-weight: bolder;">Click nhiều lần vào các thành phần p, ta sẽ thấy class thay đổi luân phiên giữa các lần click.</p>
+	<p class="toggle">thành phần p 1</p>
+	<p class="toggle">thành phần p 2</p>
+	<p class="toggle">thành phần p 3</p>
+	<p class="toggle">thành phần p 4</p>
+	<hr>
+	<h2>.val(): Lấy giá trị hiện tại của thành phần, hoặc thay đổi giá trị cho thành phần và lấy giá trị đầu tiên nếu thành phần chọn là một danh sách.</h2>
+	<input type="text" value="nhập giá trị vào ô input" size="35">
+	<p class="val"></p>
+	<p style="font-weight: bolder;">Set the value of an input box</p>
+	<input type="text" value="">
+	<button class="button">CSS</button>
+	<button class="button">HTML</button>
+	<button class="button">JS</button>
+	<script type="text/javascript">
+		$(".button").click(function(){
+			var text = $(this).text();
+			$("input").val(text);
+		});
+	</script>
+</body>
+</html>
